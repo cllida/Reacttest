@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link type="text/css" rel="stylesheet" media="all" href="/static/css/base.css">
+	<link type="text/css" rel="stylesheet" media="all" href="/static/css/login.css">
+	<link type="text/css" rel="stylesheet" media="all" href="/static/css/weibo.css">
+	<link type="text/css" rel="stylesheet" media="all" href="/static/css/index.css">
+	<script type="text/javascript" src="/static/lib/jquery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="/static/lib/underscore/underscore-1.7.0.min.js"></script>
+	<script type="text/javascript" src="/static/lib/react/react.min.js"></script>
+	<script type="text/javascript" src="/static/lib/react/react-dom.min.js"></script>
+	<script type="text/javascript" src="/static/lib/react/babel-browser-5.8.23.min.js"></script>
+	<script type="text/javascript" src="/static/js/system/system.js"></script>
+	<script type="text/javascript" src="/static/js/system/resource.js"></script>
+	<script type="text/javascript" src="/static/js/system/api.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="topbar">
+	<div id="global-nav">
+		<div id="weixin-logo">Weibo</div>
+	</div>
+</div>
+<div class="container xui-container" style="width:980px;margin:60px auto 0 auto;">
+{% block content %} {% endblock %}
+</div>
+{% block js %}{% endblock %}
+</body>
+</html>
