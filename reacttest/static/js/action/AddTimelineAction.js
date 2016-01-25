@@ -7,14 +7,13 @@ var AddTimeLineAction = {
 	getTimeLineCount: function() {
 		W.getApi().call({
 			app: 'weibo',
-			resource: 'timline_count',
+			resource: 'timeline_count',
 			args: {},
 			success: function(data) {
-				console.log(data,"DDDDDDDDDDDDdd");
 				var payload = {
 					actionType: AddTimeLineConstant.ADDTIMELINE_RESOURCE_RESPONSE
 				};
-				payload.data = data;
+				payload.data = TimeLineDispatcher.dispatch.data || data;
 				TimeLineDispatcher.dispatch(payload);
 			}
 		});
@@ -27,11 +26,10 @@ var AddTimeLineAction = {
 				content: content
 			},
 			success: function(data) {
-				console.log("发布成功！");
 				var payload = {
 					actionType: AddTimeLineConstant.ADDTIMELINE_RESOURCE_RESPONSE
 				};
-				payload.data = data;
+				payload.data = TimeLineDispatcher.dispatch.data || data;
 				TimeLineDispatcher.dispatch(payload);
 			},
 			error: function(resp) {

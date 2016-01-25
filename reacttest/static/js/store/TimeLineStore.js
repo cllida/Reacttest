@@ -17,19 +17,18 @@ var TimeLineStore = StoreUtil.createStore(TimeLineDispatcher, {
 	init: function() {
 		this.data = {
 			timelineCount: 0,
-			products: []
+			timelines: []
 		}
 	},
 
 	handleTimeLineResponse: function(action) {
-		console.log("HHHHHHHHHHHHHHHH")
 		this.data.timelineCount = action.data.timelineCount;
+		this.data.timelines = action.data.timelines
 		this.__emitChange();
 	},
 
-	getTimelineCount: function() {
-		console.log(this.data.timelineCount,"SSSSSSSSSS");
-		return this.data.timelineCount;
+	getTimelineItem: function() {
+		return this.data;
 	}
 });
 

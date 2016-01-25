@@ -11,19 +11,20 @@ var TimeLineStore = require('../store/TimeLineStore');
 var TimeLines =  require('../component/Timelines');
 var AddTimeLine = React.createClass({
 	getInitialState: function() {
+		var datas = JSON.parse(this.props.datas);
 		return {
-			isLiked: false,
-			TimeLineCount: 0
+			TimeLineCount: datas.timelineCount || 0,
+			TimeLines: datas.timelines || []
 		}
 	},
 	componentDidMount: function() {
 		TimeLineStore.addListener(this.onTimeLineStoreChange);
-		AddTimelineAction.getTimeLineCount();
+		AddTimelineAction.getTimeLineCount()
 	},
 	onTimeLineStoreChange: function() {
-		console.log(TimeLineStore.getTimelineCount(),"getTimelineCount()");
 		this.setState({
-			TimeLineCount: TimeLineStore.getTimelineCount()
+			TimeLineCount: TimeLineStore.getTimelineItem().timelineCount,
+			TimeLines: TimeLineStore.getTimelineItem().timelines
 		});
 	},
 	onClickAddTimeLine: function(){
@@ -31,7 +32,7 @@ var AddTimeLine = React.createClass({
 		AddTimelineAction.addTimeLine(content);
 	},
 	render: function() {
-		var timelines = this.props.timelines;
+		console.log(this.state)
 		return (
 			<div>
 				<div className="left-content">
@@ -44,7 +45,7 @@ var AddTimeLine = React.createClass({
 					<div className="left-content-list">
 						<hr/>
 						<div id="list" >
-							<TimeLines timelines={this.props.timelines} />
+							<TimeLines timelines={this.state.TimeLines} />
 						</div>
 					</div>
                 </div>

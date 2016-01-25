@@ -11,12 +11,13 @@ import models
 from core.jsonresponse import create_response
 
 
-class products(resource.Resource):
+class timelines(resource.Resource):
 	app = 'weibo'
 	resource = 'list'
 
 	def get(request):
-		timelines = models.TimeLine.objects.all()
+		timelines = models.TimeLine.objects.all().order_by('-id')
+		timelineCount = timelines.count()
 		timeline_list = []
 		for timeline in timelines:
 			timeline_list.append({
@@ -24,14 +25,21 @@ class products(resource.Resource):
 				"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S")
 			})
 		c = RequestContext(request, {
-			'timelines': json.dumps(timeline_list)
+			"data": {
+				'timelines': json.dumps(timeline_list),
+				'timelineCount': timelineCount
+			}
 		})
 		return render_to_response('list.html', c)
 
-	def api_get(request):
-		timeline_count = models.TimeLine.objects.all().count()
-		response = create_response(200)
-		response.data = {
-			"timeline_count": timeline_count,
-		}
-		return response.get_response()
+# class timelinesCount(resource.Resource):
+# 	app = 'weibo'
+# 	resource = 'timeline_count'
+#
+# 	def api_get(request):
+# 		timelineCount = models.TimeLine.objects.all().count()
+# 		response = create_response(200)
+# 		response.data = {
+# 			"timelineCount": timelineCount,
+# 		}
+# 		return response.get_response()

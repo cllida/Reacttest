@@ -13,9 +13,10 @@ class TimeLine(resource.Resource):
 	def api_get(requset):
 		content = requset.GET.get('content','')
 		timeline = models.TimeLine.objects.create(content=content)
+		timelineCount = models.TimeLine.objects.all().count()
 		response = create_response(200)
 		response.data = {
-			"content": timeline.content,
-			"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S")
+			"timelines": [{"content": timeline.content,"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S"),}],
+			"timelineCount": timelineCount
 		}
 		return response.get_response()
