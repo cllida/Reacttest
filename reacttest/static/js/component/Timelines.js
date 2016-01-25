@@ -5,10 +5,8 @@
 var React = require('react');
 var Timelines = React.createClass({
 	render: function() {
-		console.log(this.props.timelines,"DDDDDDDDDDDD")
-		if ((typeof this.props.timelines) === String){
-		}
 		var timelines = this.props.timelines;
+		console.log(timelines.length)
 		var productNodes = timelines.map(function(timeline) {
 			return (
 				<div className="timelines-content">

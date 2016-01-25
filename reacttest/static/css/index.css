@@ -1,8 +1,13 @@
+
 .left-content, .right-content{
+	margin-top: 20px;
 	float: left;
 }
 .left-content{
 	width: 75%;
+}
+.timelines-content{
+	margin-top: 20px;
 }
 .timeline-content{
 	position: relative;
@@ -11,7 +16,6 @@
 	padding-right: 10px;
 }
 .w-content{
-	margin-top: 20px;
 	width: 99%;
 	border-radius: 3px;
 	height: 150px;
@@ -27,18 +31,41 @@
 }
 
 .left-content-list{
-	margin-top: 35px;
+	margin-top: 35px 
 }
 .xui-timelines{
-	margin: 10px 20px;
+	margin: 20px 30px;
 }
 .xui-timelines .xui-timeline-content{
-	margin: 5px 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .xui-timelines .xui-timeline-created_at{
 	font-size: 12px;
 	color: #8C8C8C;
-
+	text-align: right;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 .timelines-content{
+	border-radius: 5px;
+	border: 1px solid #eee
+}
+.right-content{
+	width: 25%;
+	text-align: center;
+}
+.right-content .user-img{
+}
+.right-content .user-img img{
+	width: 80px;
+	height: 80px;
+	border-radius: 40px
+}
+.right-content .timeline-count{
+	color: #5F5F5F
+}
+.fl{
+	clear: both;
 }

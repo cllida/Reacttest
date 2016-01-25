@@ -24,11 +24,12 @@ class timelines(resource.Resource):
 				"content": timeline.content,
 				"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S")
 			})
+		data = {
+			'timelines': timeline_list,
+			'timelineCount': timelineCount
+		}
 		c = RequestContext(request, {
-			"data": {
-				'timelines': json.dumps(timeline_list),
-				'timelineCount': timelineCount
-			}
+			"data": json.dumps(data)
 		})
 		return render_to_response('list.html', c)
 

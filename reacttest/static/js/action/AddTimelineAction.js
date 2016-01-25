@@ -4,20 +4,20 @@
 var TimeLineDispatcher = require('../dispatcher/TimeLineDispatcher');
 var AddTimeLineConstant = require('../constant/AddTimeLineConstant');
 var AddTimeLineAction = {
-	getTimeLineCount: function() {
-		W.getApi().call({
-			app: 'weibo',
-			resource: 'timeline_count',
-			args: {},
-			success: function(data) {
-				var payload = {
-					actionType: AddTimeLineConstant.ADDTIMELINE_RESOURCE_RESPONSE
-				};
-				payload.data = TimeLineDispatcher.dispatch.data || data;
-				TimeLineDispatcher.dispatch(payload);
-			}
-		});
-	},
+	// getTimeLineCount: function() {
+	// 	W.getApi().call({
+	// 		app: 'weibo',
+	// 		resource: 'timeline_count',
+	// 		args: {},
+	// 		success: function(data) {
+	// 			var payload = {
+	// 				actionType: AddTimeLineConstant.ADDTIMELINE_RESOURCE_RESPONSE
+	// 			};
+	// 			payload.data = TimeLineDispatcher.dispatch.data || data;
+	// 			TimeLineDispatcher.dispatch(payload);
+	// 		}
+	// 	});
+	// },
 	addTimeLine: function(content) {
 		W.getApi().call({
 			app: 'weibo',
