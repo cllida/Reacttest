@@ -3,8 +3,8 @@
  */
 
 'use strict';
+require('../../css/a.css');
 var React = require('react');
-var AddTimelineAction = require('../action/AddTimeLineAction');
 var TimeLineStore = require('../store/TimeLineStore');
 var TimeLines =  require('../component/Timelines');
 var AddTimeLine = require('../component/AddTimeLine');
@@ -17,10 +17,11 @@ var Timelinelist = React.createClass({
         }
     },
     componentDidMount: function() {
-        TimeLineStore.addListener(this.onTimeLineStoreChange);
+        TimeLineStore.addListener(this.onTimeStoreChange);
         // AddTimelineAction.getTimeLineCount()
+
     },
-    onTimeLineStoreChange: function() {
+    onTimeStoreChange: function() {
         var TimeLines = this.state.TimeLines;
         TimeLines.unshift(TimeLineStore.getTimelineItem().timelines[0]);
         this.setState({
@@ -28,14 +29,9 @@ var Timelinelist = React.createClass({
             TimeLines: TimeLines
         });
     },
-    // onClickAddTimeLine: function(){
-    //     var content = $('.w-content').val();
-    //     AddTimelineAction.addTimeLine(content);
-    // },
     render: function() {
-        console.log(this.state)
         return (
-            <div>
+            <div className="top">
                 <div className="left-content">
                     <AddTimeLine />
                     <div className="left-content-list">

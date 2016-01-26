@@ -16,7 +16,11 @@ class TimeLine(resource.Resource):
 		timelineCount = models.TimeLine.objects.all().count()
 		response = create_response(200)
 		response.data = {
-			"timelines": [{"content": timeline.content,"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S"),}],
+			"timelines": [{
+				"id": timeline.id,
+				"content": timeline.content,
+				"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S")
+			}],
 			"timelineCount": timelineCount
 		}
 		return response.get_response()

@@ -22,5 +22,8 @@ module.exports = {
 			test: /\.css$/, // Only .css files
 			loader: 'style!css' // Run both loaders
 		}]
-	}
+	},
+	clean: {
+	  react : ['node_modules/**/react','!node_modules/react']
+	},
 };

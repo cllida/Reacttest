@@ -27,9 +27,9 @@ var AddTimeLineAction = {
 			},
 			success: function(data) {
 				var payload = {
-					actionType: AddTimeLineConstant.ADDTIMELINE_RESOURCE_RESPONSE
+					actionType: AddTimeLineConstant.ADDTIMELINE_RESOURCE_RESPONSE,
+					data: TimeLineDispatcher.dispatch.data || data
 				};
-				payload.data = TimeLineDispatcher.dispatch.data || data;
 				TimeLineDispatcher.dispatch(payload);
 			},
 			error: function(resp) {

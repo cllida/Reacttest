@@ -5,5 +5,5 @@ var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
 	ADDTIMELINE_RESOURCE_RESPONSE: null,
-	ADDTIMELINE_WAIT_CREATE_ITEM: null
+	SHOPPING_CART_WAIT_CREATE_ITEM: null
 });

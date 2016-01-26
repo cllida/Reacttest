@@ -1,22 +1,30 @@
 {
   "name": "reacttest",
   "version": "1.0.0",
+  "description": "",
   "main": "webpack.config.js",
   "dependencies": {
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
     "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "debug": "^2.2.0",
+    "flux": "^2.1.1",
+    "keymirror": "^0.1.1",
+    "object-assign": "^4.0.1",
     "react": "^0.14.6",
-    "webpack": "^1.12.11",
     "react-dom": "^0.14.6",
+    "style-loader": "^0.13.0",
+    "underscore": "^1.8.3",
+    "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --inline --hot --content-base build --port 3080"
+    "dev": "webpack-dev-server --devtool eval --progress --colors --inline --hot --content-base build --port 3080",
+    "build": "webpack --progress --colors"
   },
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }

@@ -6,12 +6,16 @@ var React = require('react');
 var Timelines = React.createClass({
 	render: function() {
 		var timelines = this.props.timelines;
-		console.log(timelines.length)
 		var productNodes = timelines.map(function(timeline) {
 			return (
-				<div className="timelines-content">
+				<div className="timelines-content" key={timeline.id}>
 					<div className="xui-timeline-content">{timeline.content}</div>
 					<div className="xui-timeline-created_at">{timeline.created_at}</div>
+					<ul>
+						<li><a><span><span>赞</span></span></a></li>
+						<li><a><span><span>评论</span></span></a></li>
+					</ul>
+					<div className="cb"></div>
 				</div>
 			)
 		});

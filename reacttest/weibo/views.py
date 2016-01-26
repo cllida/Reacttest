@@ -20,7 +20,9 @@ class timelines(resource.Resource):
 		timelineCount = timelines.count()
 		timeline_list = []
 		for timeline in timelines:
+			print timeline.created_at.strftime("%Y-%m-%d %H:%M:%S"),"DDDDDDDDDDDDDDDDD"
 			timeline_list.append({
+				"id": timeline.id,
 				"content": timeline.content,
 				"created_at": timeline.created_at.strftime("%Y-%m-%d %H:%M:%S")
 			})
